@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/BingoWebApp/.vs/BingoWebApp/v17
+/BingoWebApp/BingoWebApp/bin/Debug/net6.0
+/BingoWebApp/BingoWebApp/obj

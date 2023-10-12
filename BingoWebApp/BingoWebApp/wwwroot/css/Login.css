@@ -1,0 +1,99 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    background-image: url('https://images.unsplash.com/photo-1514995669114-6081e934b693?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    top: 35%;
+    left: 20%;
+    background: linear-gradient(90deg,#fda7df,#9980fa,#fda7df);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+
+
+label {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 3px solid;
+    border-image: linear-gradient(to left,#fda7df,#9980fa,#fda7df) 1;
+    margin-bottom: 20px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    /*box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);*/
+    font-size: 1.2rem;
+}
+
+button[type="submit"] {
+    background-image: linear-gradient(to left,#fda7df,#9980fa,#fda7df);
+    color: #fff;
+    border: none;
+    width: 200px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background-size: 200%;
+    transition: 0.6s;
+}
+
+    button[type="submit"]:hover {
+        background-position: right;
+    }
+
+p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }

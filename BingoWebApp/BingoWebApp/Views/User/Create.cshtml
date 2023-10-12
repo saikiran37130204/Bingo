@@ -1,0 +1,43 @@
+﻿@model BingoWebApp.Entities.User
+
+@{
+    ViewData["Title"] = "Create";
+}
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Registration Page</title>
+	<link rel="stylesheet" type="text/css" href="~/css/Create.css">
+
+</head>
+
+<body>
+	<form class="form" asp-action="Create">
+		<h2>Bingo</h2>
+		<label for="username">Username</label>
+		<input type="text" name="username" id="name" placeholder="Enter your preffered username" required>
+		<label for="name">Full name</label>
+		<input type="text" name="name" id="name" placeholder="Enter your Full name" required>
+		<label for="email">Email</label>
+		<input type="text" name="email" id="email" placeholder="Enter your email" required>
+		<label for="phoneNumber">Phone Number</label>
+		<input type="tel" name="phoneNumber" id="phone" placeholder="Enter your phone number" required>
+		<label for="address">Address</label>
+		<input type="text" name="address" id="address" placeholder="Enter your address" required>
+		<label for="password">Password</label>
+		<input type="password" name="password" id="password" placeholder="Enter your password" required>
+		<label for="confirm-password">Confirm Password</label>
+		<input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm your password" required>
+		<button type="submit">Sign Up</button>
+	</form>
+</body>
+</html>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

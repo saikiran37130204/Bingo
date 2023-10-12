@@ -1,0 +1,76 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #F1F1F1;
+    background-image: url('https://images.unsplash.com/photo-1514995669114-6081e934b693?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form {
+    background-color: #FFF;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg,#fda7df,#9980fa,#fda7df);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border-radius: 3px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    border: 3px solid;
+    border-image: linear-gradient(to left,#fda7df,#9980fa,#fda7df) 1;
+    margin-bottom: 20px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    /box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    / font-size: 1.2rem;
+}
+
+
+button[type="submit"] {
+    background-image: linear-gradient(to left,#fda7df,#9980fa,#fda7df);
+    color: #fff;
+    color: #FFF;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    width: 100%;
+    background-size: 200%;
+    transition: 0.6s;
+}
+
+    button[type="submit"]:hover {
+        background-position: right;
+    }

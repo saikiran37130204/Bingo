@@ -44,8 +44,10 @@ namespace BingoWebApp.Controllers
                 var user = await _user.SignIn(login);
                 if (user != false)
                 {
+                    TempData["success"]= true;
                     return RedirectToAction("Index", "Home");
                 }
+                ViewData["Flag"] = false;
             }
             return View();
         }

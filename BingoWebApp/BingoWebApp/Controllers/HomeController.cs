@@ -15,7 +15,13 @@ namespace BingoWebApp.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Flag= TempData["success"];
             return View();
+        }
+        public IActionResult LogOut()
+        {
+            TempData["success"] = false;
+            return RedirectToAction("Index");
         }
 
         public IActionResult Privacy()

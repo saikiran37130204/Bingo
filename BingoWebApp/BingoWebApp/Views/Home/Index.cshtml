@@ -1,8 +1,41 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Index";
 }
+@{
+    Layout = null;
+}
+@{
+    var flag = ViewBag.Flag;
+}
+@{
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blinkit - Grocery Delivery</title>
+    <link rel="stylesheet" type="text/css" href="~/css/index.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>Bingo</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for groceries...">
+            <button class="search-button">Search</button>
+        </div>
+        <div class="user-actions">
+            <button class="cart-button">My Cart</button>
+          @if(ViewBag.Flag==true)
+          {<button class="login-button" onclick="location.href='@Url.Action("LogOut", "Home")'">Log out</button>}
+          else
+          {
+          <button class="login-button" onclick="location.href='@Url.Action("Login", "User")'">Login</button>
+          }
+        </div>
+    </nav>
+</body>
+</html>

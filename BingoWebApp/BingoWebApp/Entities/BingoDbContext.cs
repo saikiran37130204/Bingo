@@ -30,7 +30,7 @@ namespace BingoWebApp.Entities
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-GT3892K\\SQLEXPRESS;Database=Bingo;Integrated Security=true");
+                optionsBuilder.UseSqlServer("Server=LAPTOP-3BGPN85C\\SQLEXPRESS;Database=Bingo;Integrated Security=true");
             }
         }
 
@@ -47,18 +47,18 @@ namespace BingoWebApp.Entities
                 entity.HasOne(d => d.Driver)
                     .WithMany(p => p.Deliveries)
                     .HasForeignKey(d => d.DriverId)
-                    .HasConstraintName("FK__Deliverie__Drive__5535A963");
+                    .HasConstraintName("FK__Deliverie__Drive__7B5B524B");
 
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.Deliveries)
                     .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK__Deliverie__Order__5441852A");
+                    .HasConstraintName("FK__Deliverie__Order__7A672E12");
             });
 
             modelBuilder.Entity<DriverLocation>(entity =>
             {
                 entity.HasKey(e => e.LocationId)
-                    .HasName("PK__DriverLo__E7FEA497F834232C");
+                    .HasName("PK__DriverLo__E7FEA49782CEB856");
 
                 entity.Property(e => e.Latitude).HasColumnType("decimal(8, 6)");
 
@@ -69,7 +69,7 @@ namespace BingoWebApp.Entities
                 entity.HasOne(d => d.Driver)
                     .WithMany(p => p.DriverLocations)
                     .HasForeignKey(d => d.DriverId)
-                    .HasConstraintName("FK__DriverLoc__Drive__5AEE82B9");
+                    .HasConstraintName("FK__DriverLoc__Drive__01142BA1");
             });
 
             modelBuilder.Entity<Order>(entity =>
@@ -81,7 +81,7 @@ namespace BingoWebApp.Entities
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Orders)
                     .HasForeignKey(d => d.UserId)
-                    .HasConstraintName("FK__Orders__UserId__4D94879B");
+                    .HasConstraintName("FK__Orders__UserId__73BA3083");
             });
 
             modelBuilder.Entity<OrderItem>(entity =>
@@ -91,12 +91,12 @@ namespace BingoWebApp.Entities
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.OrderItems)
                     .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK__OrderItem__Order__5070F446");
+                    .HasConstraintName("FK__OrderItem__Order__76969D2E");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.OrderItems)
                     .HasForeignKey(d => d.ProductId)
-                    .HasConstraintName("FK__OrderItem__Produ__5165187F");
+                    .HasConstraintName("FK__OrderItem__Produ__778AC167");
             });
 
             modelBuilder.Entity<Payment>(entity =>
@@ -108,7 +108,7 @@ namespace BingoWebApp.Entities
                 entity.HasOne(d => d.Order)
                     .WithMany(p => p.Payments)
                     .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK__Payments__OrderI__5812160E");
+                    .HasConstraintName("FK__Payments__OrderI__7E37BEF6");
             });
 
             modelBuilder.Entity<Product>(entity =>

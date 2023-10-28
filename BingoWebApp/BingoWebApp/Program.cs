@@ -18,6 +18,7 @@ builder.Services.AddDbContext<BingoDbContext>(options =>
 
 builder.Services.AddScoped<IUser, UserService>();
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

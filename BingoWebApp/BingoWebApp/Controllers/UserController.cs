@@ -39,9 +39,9 @@ namespace BingoWebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Login login)
         {
-            if (login != null)
+            if (ModelState.IsValid)
             {
-                var user = await _user.SignIn(login);
+                var user =  await _user.SignIn(login);
                 if (user != false)
                 {
                     TempData["success"] = true;

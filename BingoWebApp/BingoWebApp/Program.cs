@@ -17,6 +17,7 @@ builder.Services.AddDbContext<BingoDbContext>(options =>
 });
 
 builder.Services.AddScoped<IUser, UserService>();
+builder.Services.AddScoped<IProducts, ProductService>();
 
 
 var app = builder.Build();

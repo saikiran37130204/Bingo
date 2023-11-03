@@ -42,9 +42,11 @@
           "Microsoft.NET.Test.Sdk": "17.7.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",
           "NUnit": "3.13.3",
+          "NUnit.Analyzers": "3.8.0",
           "NUnit.ConsoleRunner": "3.16.3",
           "NUnit.Extension.NUnitProjectLoader": "3.7.1",
           "NUnit3TestAdapter": "4.5.0",
+          "System.ComponentModel.Annotations": "5.0.0",
           "Microsoft.AspNetCore.Antiforgery": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "6.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "6.0.0.0",
@@ -185,7 +187,7 @@
           "System.Collections.Immutable.Reference": "6.0.0.0",
           "System.Collections.NonGeneric": "6.0.0.0",
           "System.Collections.Specialized": "6.0.0.0",
-          "System.ComponentModel.Annotations": "6.0.0.0",
+          "System.ComponentModel.Annotations.Reference": "6.0.0.0",
           "System.ComponentModel.DataAnnotations": "4.0.0.0",
           "System.ComponentModel": "6.0.0.0",
           "System.ComponentModel.EventBasedAsync": "6.0.0.0",
@@ -2560,6 +2562,7 @@
           "lib/netstandard2.0/nunit.framework.dll": {}
         }
       },
+      "NUnit.Analyzers/3.8.0": {},
       "NUnit.ConsoleRunner/3.16.3": {},
       "NUnit.Extension.NUnitProjectLoader/3.7.1": {},
       "NUnit3TestAdapter/4.5.0": {},
@@ -2576,6 +2579,7 @@
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
         }
       },
+      "System.ComponentModel.Annotations/5.0.0": {},
       "System.Composition/1.0.31": {
         "dependencies": {
           "System.Composition.AttributedModel": "1.0.31",
@@ -3069,7 +3073,8 @@
           "NUnit": "3.13.3",
           "NUnit.ConsoleRunner": "3.16.3",
           "NUnit.Extension.NUnitProjectLoader": "3.7.1",
-          "NUnit3TestAdapter": "4.5.0"
+          "NUnit3TestAdapter": "4.5.0",
+          "System.ComponentModel.Annotations": "5.0.0"
         },
         "runtime": {
           "BingoWebApp.dll": {}
@@ -3918,7 +3923,7 @@
         },
         "compileOnly": true
       },
-      "System.ComponentModel.Annotations/6.0.0.0": {
+      "System.ComponentModel.Annotations.Reference/6.0.0.0": {
         "compile": {
           "System.ComponentModel.Annotations.dll": {}
         },
@@ -5829,6 +5834,13 @@
       "path": "nunit/3.13.3",
       "hashPath": "nunit.3.13.3.nupkg.sha512"
     },
+    "NUnit.Analyzers/3.8.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OE1p/F5KYq8ihzaI2BnXBIUCTUC02gd74oXS3YtYZIsOCl6Fq42P+8K86dicHoEt3cnQIui2KARI8EB9zS+mhw==",
+      "path": "nunit.analyzers/3.8.0",
+      "hashPath": "nunit.analyzers.3.8.0.nupkg.sha512"
+    },
     "NUnit.ConsoleRunner/3.16.3": {
       "type": "package",
       "serviceable": true,
@@ -5870,6 +5882,13 @@
       "sha512": "sha512-l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
       "path": "system.collections.immutable/6.0.0",
       "hashPath": "system.collections.immutable.6.0.0.nupkg.sha512"
+    },
+    "System.ComponentModel.Annotations/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
+      "path": "system.componentmodel.annotations/5.0.0",
+      "hashPath": "system.componentmodel.annotations.5.0.0.nupkg.sha512"
     },
     "System.Composition/1.0.31": {
       "type": "package",
@@ -6926,7 +6945,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.ComponentModel.Annotations/6.0.0.0": {
+    "System.ComponentModel.Annotations.Reference/6.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

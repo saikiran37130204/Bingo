@@ -4,6 +4,7 @@ namespace BingoWebApp.Interfaces
 {
     public interface IProducts
     {
-        public Task<Product> GetAllProducts();
+        public Task<List<Product>> GetAllProducts();
+        
     }
 }

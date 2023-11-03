@@ -44,12 +44,22 @@ namespace BingoWebApp.Controllers
                 var user =  await _user.SignIn(login);
                 if (user != false)
                 {
+                    TempData["userName"] = login.Username;
                     TempData["success"] = true;
                     return RedirectToAction("Index", "Home");
                 }
                 ViewData["Flag"] = false;
             }
             return View();
+        }
+        public async Task<IActionResult> InsertInToCart(int productId)
+        {
+            var user =await _user.InsertInToCart(productId);
+            if(user)
+            {
+                return View();
+            }
+            return View(); 
         }
         
     }

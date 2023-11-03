@@ -1,0 +1,15 @@
+﻿@model IEnumerable<BingoWebApp.Entities.Product>
+<link rel="stylesheet" type="text/css" href="~/css/DisplayProducts.css">
+<div class="product-list">
+    @foreach (var item in Model)
+    {
+        <div class="product">
+            <img src="@item.ImageUrl" alt="Product 1">
+            <h3>@item.ProductId</h3>
+            <p>Description of Product 1.</p>
+            <span class="price">$@item.Price</span>
+            <!--<button asp-controller="User" asp-action="InsertInToCart" asp-route-id="item.ProductId" type="button">Add to Cart</button>-->
+            <a asp-controller="User" asp-action="InsertInToCart" asp-route-Id="@item.ProductId" type="button">Add to Cart</a>
+        </div>
+    }
+</div>

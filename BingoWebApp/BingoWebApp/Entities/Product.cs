@@ -7,6 +7,7 @@ namespace BingoWebApp.Entities
     {
         public Product()
         {
+            Carts = new HashSet<Cart>();
             OrderItems = new HashSet<OrderItem>();
         }
 
@@ -18,6 +19,7 @@ namespace BingoWebApp.Entities
         public string? Category { get; set; }
         public int StockQuantity { get; set; }
 
+        public virtual ICollection<Cart> Carts { get; set; }
         public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

@@ -8,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSession(o =>
+{
+    o.IdleTimeout = TimeSpan.FromSeconds(1800);
+});
+
+builder.Services.AddHttpContextAccessor();
 
 //connecting database
 builder.Services.AddDbContext<BingoDbContext>(options =>
@@ -36,6 +42,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
+
 
 app.MapControllerRoute(
     name: "default",

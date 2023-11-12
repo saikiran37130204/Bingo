@@ -52,13 +52,30 @@ namespace BingoWebApp.Controllers
             }
             return View();
         }
-        public async Task<IActionResult> InsertInToCart(int productId)
+
+        public IActionResult Logout()
         {
-            var user =await _user.InsertInToCart(productId);
+            var logout =  _user.SignOut();
+            if(logout)
+            {
+                return View("Login");
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+       
+       
+
+        
+        public async Task<IActionResult> InsertInToCart(int ProductId=0)
+        {
+            var user = await _user.InsertInToCart(ProductId);
             if(user)
             {
                 return View();
-            }
+            }        
             return View(); 
         }
         

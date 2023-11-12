@@ -7,7 +7,7 @@ namespace BingoWebApp.Interfaces
     {
         public Task<bool> Create(User user);
         public Task<bool> SignIn(Login login);
-        public UserDetails User();
+        public bool SignOut();
         public Task<bool> InsertInToCart(int ProductId);
     }
 }

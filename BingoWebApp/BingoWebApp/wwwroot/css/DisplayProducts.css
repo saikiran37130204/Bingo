@@ -33,8 +33,9 @@
     color: #ff5733;
 }
 
-input {
+#AddToCartId {
     background-color: #007bff;
+    background-color: none;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -42,6 +43,6 @@ input {
     cursor: pointer;
 }
 
-    input:hover {
+    #AddToCartId:hover {
         background-color: #0056b3;
     }

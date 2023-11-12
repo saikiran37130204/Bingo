@@ -2,23 +2,23 @@
 using BingoWebApp.Interfaces;
 using BingoWebApp.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
 
 namespace BingoWebApp.Services
 {
     public class UserService : IUser
     {
         public readonly BingoDbContext _dbContext;
+        private readonly IHttpContextAccessor _httpContextAccessor;
         public readonly ILogger<UserService> _logger;
-        [TempData]
-        public int UserId {get; set; }
+        
         public UserService()
         {
         }
 
-        public UserService(BingoDbContext dbContext, ILogger<UserService> logger)
+        public UserService(BingoDbContext dbContext, IHttpContextAccessor httpContextAccessor, ILogger<UserService> logger)
         {
             _dbContext = dbContext;
+            _httpContextAccessor = httpContextAccessor;
             _logger = logger;
         }
         public async Task<bool> Create(User user)
@@ -52,13 +52,13 @@ namespace BingoWebApp.Services
                     var customer = await _dbContext.Users
                         .Where(i => i.Username == login.Username)
                         .FirstAsync();
+                    _httpContextAccessor.HttpContext?.Session.SetInt32("UserId", customer.UserId);
 
                     if (customer != null)
                     {
 
                         if (customer.Password == login.Password)
                         {
-                            UserId = customer.UserId;
                             return true;
                         }
                         else
@@ -75,35 +75,41 @@ namespace BingoWebApp.Services
             return false;
         }
 
-        public UserDetails User()
+        public bool SignOut()
         {
-            var user = _dbContext.Users.Where(i => i.UserId == UserId).FirstOrDefault();
-            UserDetails userDetails;
-                 userDetails = new UserDetails
-                {
-                    Id = 4
-                };
-            return  userDetails;
+            _httpContextAccessor.HttpContext?.Session.Remove("UserId");
+            return true;  
         }
+
         public async Task<bool> InsertInToCart(int productId)
         {
            var product = await _dbContext.Products.Where(i=>i.ProductId == productId).FirstOrDefaultAsync();
-            var user = User();
-            if (product == null)
+            var userId= _httpContextAccessor.HttpContext?.Session.GetInt32("UserId");
+            if (!userId.HasValue && product == null)
             {
                 return false;
             }
             else
             {
-                _dbContext.Carts.Add(new Cart()
+              await _dbContext.Carts.AddAsync(new Cart()
                 {
-                    UserId = 4,
-                    ProductId = product.ProductId,
+                    UserId = userId,
+                    ProductId = product?.ProductId,
                     CreatedDate = DateTime.Now,
                     Quantity = 1
                 }) ;
+                var result = await _dbContext.SaveChangesAsync();
+                if (result!=0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            return true;
         }
+
+        
     }
 }

@@ -1,20 +1,25 @@
 ﻿@page
 @model BingoWebApp.Views.Shared._headerModel
+
 @{
+    // var userId = HttpContext.Session.GetInt32("UserId");
+    var userId = ViewContext.HttpContext?.Session.GetInt32("UserId");
+
 }
+<link rel="stylesheet" href="~/css/Index.css" />
 <nav class="navbar">
     <div class="logo">
         <h1>Bingo</h1>
     </div>
     <div class="search-bar">
-        <input type="text" placeholder="Search for groceries...">
+        <input class="search-bar-input" type="text" placeholder="Search for groceries...">
         <button class="search-button">Search</button>
     </div>
     <div class="user-actions">
-        <button class="cart-button">My Cart</button>
-        @if(ViewBag.Flag==true)
+        <button class="cart-button" onclick="location.href='@Url.Action("GetCartItems", "Product")'">My Cart</button>
+        @if(userId.HasValue)
         {
-        <button class="login-button" onclick="location.href='@Url.Action("LogOut", "Home")'">Log out</button>
+        <button class="login-button" onclick="location.href='@Url.Action("Logout", "User")'">Log out</button>
         }
         else
         {

@@ -39,7 +39,7 @@ namespace BingoWebApp.Entities
         {
             modelBuilder.Entity<Cart>(entity =>
             {
-                entity.Property(e => e.CartId).ValueGeneratedNever();
+               // entity.Property(e => e.CartId).ValueGeneratedNever();
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 

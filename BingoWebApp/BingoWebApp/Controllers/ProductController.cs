@@ -13,25 +13,23 @@ namespace BingoWebApp.Controllers
             _logger = logger;
             _product = products;
         }
-        /*
-        public async Task<ActionResult<List<Product>>> DisplayProducts()
+        public async Task<IActionResult> InsertInToCart(int ProductId = 0)
         {
-            try
+            var user = await _product.InsertInToCart(ProductId);
+            if (user)
             {
-                var products = await _product.GetAllProducts();
-                if (products != null)
-                {
-                    return View(products);
-                }
-                else
-                {
-                    return View();
-                }
+                return View();
             }
-            catch (Exception ex)
-            {
-                return View(ex);
-            }
-        }*/
+            return View();
+        }
+        public async Task<IActionResult> GetCartItems()
+        {
+            var cartItems = await _product.GetCartItems();
+            
+                return View(cartItems);
+            
+        }
+
+        
     }
 }

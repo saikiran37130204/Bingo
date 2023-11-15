@@ -1,0 +1,13 @@
+﻿@model BingoWebApp.Entities.Product
+<link rel="stylesheet" type="text/css" href="~/css/DisplayProducts.css">
+
+<div class="product">
+    <img src="@Model.ImageUrl" alt="Product 1">
+    <h3>@Model.ProductName</h3>
+    <p>Description of Product 1.</p>
+    <span class="price">$@Model.Price</span>
+    <!--<button asp-controller="User" asp-action="InsertInToCart" asp-route-id="item.ProductId" type="button">Add to Cart</button>
+      /<a asp-controller="User" asp-action="InsertInToCart" asp-route-Id="item.ProductId" type="button">Add to Cart</a>-->
+    <a asp-controller="Product" asp-action="InsertInToCart" asp-route-ProductId="@Model.ProductId"><input id="AddToCartId" type="submit" value="Add to Cart" /></a>
+    <!--<input type="button" value="Add to Cart" asp-page="~/User/InsertInToCart/Model.ProductId" /> -->
+</div>

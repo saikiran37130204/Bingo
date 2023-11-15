@@ -1,0 +1,72 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: none;
+}
+
+.cart-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.cart-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: 200px;
+    height: 320px;
+}
+
+    .cart-item img {
+        max-width: 100%;
+        max-height: 50%;
+    }
+
+.price {
+    font-weight: bold;
+    color: #ff5733;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-button {
+    background-color: #28a745; /* Green color for the "Back" button */
+    color: #fff;
+    margin: 10px; /* Adjust margin as needed */
+}
+
+.remove-button {
+    background-color: #dc3545; /* Red color for the "Remove" button */
+    color: #fff;
+}
+
+.order-button {
+    background-color: #007bff; /* Blue color for the "Order Later" button */
+    color: #fff;
+}
+
+button:hover {
+    opacity: 0.8; /* Reduce opacity on hover for a visual indication */
+}
+
+.noItems {
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+    margin: 20px;
+}

@@ -7,6 +7,7 @@ namespace BingoWebApp.Entities
     {
         public User()
         {
+            Carts = new HashSet<Cart>();
             Deliveries = new HashSet<Delivery>();
             DriverLocations = new HashSet<DriverLocation>();
             Orders = new HashSet<Order>();
@@ -22,6 +23,7 @@ namespace BingoWebApp.Entities
         public DateTime? CreatedAt { get; set; }
         public int Role { get; set; }
 
+        public virtual ICollection<Cart> Carts { get; set; }
         public virtual ICollection<Delivery> Deliveries { get; set; }
         public virtual ICollection<DriverLocation> DriverLocations { get; set; }
         public virtual ICollection<Order> Orders { get; set; }

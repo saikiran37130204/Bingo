@@ -39,17 +39,44 @@ namespace BingoWebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Login login)
         {
-            if (login != null)
+            if (ModelState.IsValid)
             {
-                var user = await _user.SignIn(login);
+                var user =  await _user.SignIn(login);
                 if (user != false)
                 {
+                    TempData["userName"] = login.Username;
                     TempData["success"] = true;
                     return RedirectToAction("Index", "Home");
                 }
                 ViewData["Flag"] = false;
             }
             return View();
+        }
+
+        public IActionResult Logout()
+        {
+            var logout =  _user.SignOut();
+            if(logout)
+            {
+                return View("Login");
+            }
+            else
+            {
+                return View("Error");
+            }
+        }
+       
+       
+
+        
+        public async Task<IActionResult> InsertInToCart(int ProductId=0)
+        {
+            var user = await _user.InsertInToCart(ProductId);
+            if(user)
+            {
+                return View();
+            }        
+            return View(); 
         }
         
     }

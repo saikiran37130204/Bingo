@@ -1,0 +1,8 @@
+﻿@model IEnumerable<BingoWebApp.Entities.Product>
+
+<div class="product-list">
+    @foreach (var item in Model)
+    {
+        <partial name="_product" model="item" />
+    }
+</div>

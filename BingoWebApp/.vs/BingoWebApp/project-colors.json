@@ -10,7 +10,12 @@
       "ProjectGuid": "782037e8-c8e7-4b81-8f7e-769b6f883f8c",
       "DisplayName": "BingoWebApp",
       "ColorIndex": 0
+    },
+    "c26e8b7c-b3cf-43a3-bcac-e3a63a79c20a": {
+      "ProjectGuid": "c26e8b7c-b3cf-43a3-bcac-e3a63a79c20a",
+      "DisplayName": "UnitTests",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }

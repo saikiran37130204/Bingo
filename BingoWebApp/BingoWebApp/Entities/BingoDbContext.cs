@@ -16,6 +16,7 @@ namespace BingoWebApp.Entities
         {
         }
 
+        public virtual DbSet<Cart> Carts { get; set; } = null!;
         public virtual DbSet<Delivery> Deliveries { get; set; } = null!;
         public virtual DbSet<DriverLocation> DriverLocations { get; set; } = null!;
         public virtual DbSet<Order> Orders { get; set; } = null!;
@@ -36,6 +37,23 @@ namespace BingoWebApp.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Cart>(entity =>
+            {
+               // entity.Property(e => e.CartId).ValueGeneratedNever();
+
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.Carts)
+                    .HasForeignKey(d => d.ProductId)
+                    .HasConstraintName("FK__Carts__ProductId__17036CC0");
+
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Carts)
+                    .HasForeignKey(d => d.UserId)
+                    .HasConstraintName("FK__Carts__UserId__160F4887");
+            });
+
             modelBuilder.Entity<Delivery>(entity =>
             {
                 entity.Property(e => e.ActualDeliveryTime).HasColumnType("datetime");

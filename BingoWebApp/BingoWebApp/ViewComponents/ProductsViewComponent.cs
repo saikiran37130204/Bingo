@@ -19,6 +19,7 @@ namespace BingoWebApp.ViewComponents
             return View(products);
         }
 
+
        /*
         public async Task<IViewComponentResult> InsertInToCart(int productId)
         {

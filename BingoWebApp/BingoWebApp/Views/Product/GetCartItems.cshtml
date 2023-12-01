@@ -6,6 +6,9 @@
     Layout = null;
 }
 <link rel="stylesheet" type="text/css" href="~/css/CartItems.css">
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/js/CartActions.js"></script>
+
 <button class="back-button" onclick="location.href='@Url.Action("Index", "Home")'">Back</button>
 
 @if (Model.Count>0)
@@ -19,8 +22,12 @@
                 <p>@item.Description</p>
                 <span class="price">$ @item.Price</span>
                 <div class="buttons">
-                    <button class="remove-button">Remove</button>
-                    <button class="order-button">Buy     </button>
+                    
+
+                   <!--<button class="remove-button" asp-controller="Product" asp-action="RemoveFromCart" asp-route-ProductId="item.ProductId">Remove</button>-->
+                   <button class="remove-button" onclick="RemoveFromCart(@item.ProductId)">Remove</button>
+                    <!--<a asp-controller="Product" asp-action="RemoveFromCart" asp-route-ProductId="item.ProductId"><input id="remove-button" type="submit" value="Remove" /></a>-->
+                    <button class="order-button" onclick="InsertIntoOrders(@item.ProductId)">Buy     </button>
                 </div>
             </div>
         }
@@ -30,3 +37,4 @@ else
 {
     <p class="noItems">No items in the cart</p>
 }
+

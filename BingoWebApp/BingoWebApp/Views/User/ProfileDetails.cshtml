@@ -1,0 +1,47 @@
+﻿@model BingoWebApp.Entities.User
+@{
+    ViewData["Title"] = "ProfileDetails";
+    
+}
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" type="text/css" href="~/css/ProfileDetails.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h2>User Profile</h2>
+        <div class="profile-details">
+            <div class="profile-field">
+                <label>Username:</label>
+                <p>@Model.Username</p>
+            </div>
+            <div class="profile-field">
+                <label>Email:</label>
+                <p>@Model.Email</p>
+            </div>
+            <div class="profile-field">
+                <label>Name:</label>
+                <p>@Model.Name</p>
+            </div>
+            <div class="profile-field">
+                <label>Address:</label>
+                <p>@Model.Address</p>
+            </div>
+            <div class="profile-field">
+                <label>Phone Number:</label>
+                <p>@Model.PhoneNumber</p>
+            </div>
+            <div class="profile-field">
+                <label>Created At:</label>
+                <p>@Model.CreatedAt</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

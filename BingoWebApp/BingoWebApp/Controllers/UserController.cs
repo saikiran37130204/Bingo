@@ -19,11 +19,11 @@ namespace BingoWebApp.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(User user)
+        public async Task<IActionResult> Create(Registration registration)
         {
-            if (user != null)
+            if (registration!=null)
             {
-                var reg = await _user.Create(user);
+                var reg = await _user.Create(registration);
                 if (reg == true)
                 {
                     return RedirectToAction("Login");
@@ -67,8 +67,6 @@ namespace BingoWebApp.Controllers
         }
        
        
-
-        
         public async Task<IActionResult> InsertInToCart(int ProductId=0)
         {
             var user = await _user.InsertInToCart(ProductId);
@@ -78,6 +76,13 @@ namespace BingoWebApp.Controllers
             }        
             return View(); 
         }
-        
+        public async Task<IActionResult> ProfileDetails(int userId)
+        {
+            var userDetails = await _user.ProfileDetails(userId);
+            return View(userDetails);
+        }
+
+
+
     }
 }

@@ -18,18 +18,45 @@ namespace BingoWebApp.Controllers
             var user = await _product.InsertInToCart(ProductId);
             if (user)
             {
-                return View();
+                return RedirectToAction("GetCartItems");
             }
-            return View();
+            return View("Home","Index");
+        }
+        [HttpPost]
+        public async Task<IActionResult> GetSearchProducts(string searchTerm)
+        {
+            var items = await _product.GetSearchProducts(searchTerm);
+            return View("Views/Shared/Components/Products/Default.cshtml", items);
         }
         public async Task<IActionResult> GetCartItems()
         {
             var cartItems = await _product.GetCartItems();
-            
-                return View(cartItems);
-            
+            return View(cartItems);
         }
 
-        
+        public async Task<IActionResult> RemoveFromCart(int ProductId)
+        {
+            var cartItems= await _product.RemoveFromCart(ProductId);
+            return RedirectToAction("GetCartItems");
+        }
+
+        public async Task<IActionResult> InsertInToOrders(int ProductId)
+        {
+            var order=await _product.InsertInToOrders(ProductId);
+            if (order)
+            {
+                return RedirectToAction("GetCartItems");
+            }
+            return View();
+        }
+         
+        public async Task<IActionResult> GetOrders()
+        {
+            var orderItems=await _product.GetOrders();
+            return View(orderItems);
+        }
+
+
+
     }
 }

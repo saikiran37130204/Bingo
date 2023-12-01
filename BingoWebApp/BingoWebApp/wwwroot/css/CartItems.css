@@ -44,6 +44,13 @@ button {
     cursor: pointer;
 }
 
+/*#remove-button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}*/
+
 .back-button {
     background-color: #28a745; /* Green color for the "Back" button */
     color: #fff;

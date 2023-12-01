@@ -10,7 +10,7 @@ namespace BingoWebApp.Entities
         public DateTime PaymentDate { get; set; }
         public int PaymentMethod { get; set; }
         public decimal PaymentAmount { get; set; }
-
         public virtual Order? Order { get; set; }
+
     }
 }

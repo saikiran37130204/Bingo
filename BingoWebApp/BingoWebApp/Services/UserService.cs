@@ -13,6 +13,7 @@ namespace BingoWebApp.Services
         
         public UserService()
         {
+
         }
 
         public UserService(BingoDbContext dbContext, IHttpContextAccessor httpContextAccessor, ILogger<UserService> logger)
@@ -21,17 +22,30 @@ namespace BingoWebApp.Services
             _httpContextAccessor = httpContextAccessor;
             _logger = logger;
         }
-        public async Task<bool> Create(User user)
+        public async Task<bool> Create(Registration registration)
         {
             try
             {
-                if (user != null)
+                if (registration != null)
                 {
-                    user.CreatedAt = DateTime.Now;
-                    user.Role = 1;
-                    await _dbContext.Users.AddAsync(user);
-                    await _dbContext.SaveChangesAsync();
-                    return true;
+                    if (registration.Password == registration.ConfirmPassword)
+                    {
+                        var user = new User 
+                            {
+                            Username = registration.Username,
+                            Address = registration.Address,
+                            Email = registration.Email,
+                            Password = registration.Password,
+                            PhoneNumber = registration.PhoneNumber,
+                            Name = registration.Name,
+                            CreatedAt = DateTime.Now,
+                            Role=1
+
+                        };
+                        await _dbContext.Users.AddAsync(user);
+                        await _dbContext.SaveChangesAsync();
+                        return true;
+                    }
                 }
             }
             catch (Exception ex)
@@ -110,6 +124,24 @@ namespace BingoWebApp.Services
             }
         }
 
-        
+        public async Task<User> ProfileDetails(int userId)
+        {
+            try
+            {
+                var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.UserId == userId);
+
+                if (user != null)
+                {
+                    return user;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception or log it based on your application's needs
+                _logger.LogError(ex, "Error occurred while retrieving user details.");
+                return null; // Or return an empty result or handle the error accordingly
+            }
+        }
     }
 }

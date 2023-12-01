@@ -1,0 +1,48 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: none;
+}
+
+.orders-container {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center; /* Add this line to center-align the content */
+}
+
+.order {
+    border: 1px solid #;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center; /* Align text content to the left within each order */
+}
+
+    .order h4 {
+        margin-top: 10px;
+    }
+
+.order-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center-align child items within the order-items container */
+}
+
+.item-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.product-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.item-details {
+    font-size: 14px;
+    text-align: left; /* Align text content to the left within each item-details container */
+}

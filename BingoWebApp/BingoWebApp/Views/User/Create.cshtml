@@ -1,4 +1,4 @@
-﻿@model BingoWebApp.Entities.User
+﻿@model BingoWebApp.Models.Registration
 
 @{
     ViewData["Title"] = "Create";
@@ -6,6 +6,7 @@
 @{
     Layout = null;
 }
+
 
 <!DOCTYPE html>
 <html>
@@ -31,13 +32,96 @@
 		<input type="text" name="address" id="address" placeholder="Enter your address" required>
 		<label for="password">Password</label>
 		<input type="password" name="password" id="password" placeholder="Enter your password" required>
-		<label for="confirm-password">Confirm Password</label>
-		<input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm your password" required>
+		<label for="confirmpassword">Confirm Password</label>
+		<input type="password" name="confirmpassword" id="confirm-password" placeholder="Confirm your password" required>
 		<button type="submit">Sign Up</button>
 	</form>
 </body>
 </html>
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    {await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
+<!--model BingoWebApp.Models.Registration
+{
+    ViewData["Title"] = "Create";
+}
+{
+    Layout = null;
+}
+
+<style>
+   
+    .validation-message{
+        display:block;
+        text-align:left;
+        color:red;
+    }
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Page</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Create.css">
+
+</head>
+
+<body>
+    <form class="form" asp-action="Create" method="post">
+        <h2>Bingo</h2>
+        <div asp-validation-summary="ModelOnly">
+        </div>
+        
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" placeholder="Enter your preferred username" asp-for="Username" required>
+        <span asp-validation-for="Username" class="validation-message"></span>
+       
+        
+        
+        <label for="name">Full name</label>
+        <input type="text" name="name" id="name" placeholder="Enter your Full name" asp-for="Name" required>
+        <span asp-validation-for="Name" class="validation-message"></span>
+        
+        
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" placeholder="Enter your email" asp-for="Email" required>
+        <span asp-validation-for="Email" class="validation-message"></span>
+        
+        
+        
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" name="phoneNumber" id="phone" placeholder="Enter your phone number" asp-for="PhoneNumber" required>
+        <span asp-validation-for="PhoneNumber" class="validation-message"></span>
+       
+        
+        
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" placeholder="Enter your address" asp-for="Address" required>
+        <span asp-validation-for="Address" class="validation-message"></span>
+        
+        
+        
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Enter your password" asp-for="Password" required>
+        <span asp-validation-for="Password" class="validation-message"></span>
+        
+        
+        
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm your password" asp-for="ConfirmPassword" required>
+        <span asp-validation-for="ConfirmPassword" class="validation-message"></span>
+        
+        
+        <button type="submit">Sign Up</button>
+        
+    </form>
+    
+</body>
+</html>
+section Scripts {
+    {
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}
+-->

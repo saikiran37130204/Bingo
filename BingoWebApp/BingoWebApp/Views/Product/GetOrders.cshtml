@@ -1,0 +1,43 @@
+﻿@model BingoWebApp.Models.OrderItems.Order
+
+@{
+    ViewData["Title"] = "Orders";
+    
+}
+@{
+    Layout = null;
+}
+<link rel="stylesheet" type="text/css" href="~/css/GetOrders.css">
+
+<div class="orders-container">
+    <h2>Your Orders</h2>
+
+    @if (Model != null)
+    {
+            <div class="order">
+                <p>Order ID:@Model.OrderId </p>
+                <p>Order Date: @Model.OrderDate.ToString("yyyy-MM-dd HH:mm:ss")</p>
+
+                <h4>Order Items</h4>
+                <div class="order-items">
+                    @foreach (var item in Model.OrderItems)
+                    {
+                        <div class="item-card">
+                            <img src="@item.ImageUrl" alt="Product Image" class="product-image" />
+                            <div class="item-details">
+                                <p><strong>Product:</strong> @item.ProductName</p>
+                                <p><strong>Quantity:</strong> @item.Quantity</p>
+                                <p><strong>Subtotal:</strong> $@item.PriceWithTax</p>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <p>Total Price: $@Model.TotalPrice</p>
+            </div>
+    }
+    else
+    {
+        <p>No orders found.</p>
+    }
+</div>
